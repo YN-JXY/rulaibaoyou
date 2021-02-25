@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StaticPagesController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route::get('/','StaticPagesController@home');
-Route::get('/',[StaticPagesController::class,'home']);
-Route::get('/help',[StaticPagesController::class,'help']);
-Route::get('/about',[StaticPagesController::class,'about']);
+
+//这是首页的路由
+Route::get('/',[StaticPagesController::class,'home'])->name('home');
+//这是帮助页路由
+Route::get('/help',[StaticPagesController::class,'help'])->name('help');
+//这是关于页路由
+Route::get('/about',[StaticPagesController::class,'about'])->name('about');
+//用户注册路由
+Route::get('signup',[UsersController::class,'create'])->name('signup');
