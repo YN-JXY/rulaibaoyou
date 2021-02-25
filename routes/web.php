@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\StaticPagesController;
 use App\Http\Controllers\UsersController;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +28,12 @@ Route::get('/help',[StaticPagesController::class,'help'])->name('help');
 Route::get('/about',[StaticPagesController::class,'about'])->name('about');
 //用户注册路由
 Route::get('signup',[UsersController::class,'create'])->name('signup');
+
+//resource该方法接收俩个参数，第一个参数为资源名称，第二个参数为控制器名称
+Route::resource('users','UsersController');
+//显示登陆页面
+Route::get('login',[SessionsController::class,'create'])->name('login');
+//创建新会话
+Route::post('login',[SessionsController::class,'store'])->name('login');
+//销毁会话
+Route::delete('logout',[SessionsController::class,'destroy'])->name('logout');
