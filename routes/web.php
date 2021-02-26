@@ -20,6 +20,7 @@ use Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
 
 // Route::get('/','StaticPagesController@home');
 
+Route::get('/home',[StaticPagesController::class,'home'])->name('home');
 //这是首页的路由
 Route::get('/',[StaticPagesController::class,'home'])->name('home');
 //这是帮助页路由
@@ -37,3 +38,13 @@ Route::get('login',[SessionsController::class,'create'])->name('login');
 Route::post('login',[SessionsController::class,'store'])->name('login');
 //销毁会话
 Route::delete('logout',[SessionsController::class,'destroy'])->name('logout');
+
+Route::get('signup/confirm/{token}','UsersController@confirmEmail')->name('confirm_email');
+
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
