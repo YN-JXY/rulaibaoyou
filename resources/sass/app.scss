@@ -6,3 +6,45 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+.stats {
+    overflow: auto;
+    margin-top: 0;
+    padding: 0;
+    a {
+      float: left;
+      padding: 0 10px;
+      text-align: center;
+      width: 33%;
+      border-left: 1px solid #eee;
+      color: #33383c;
+      &:first-child {
+        padding-left: 0;
+        border: 0;
+      }
+      &:hover {
+        text-decoration: none;
+        color: #337ab7;
+      }
+    }
+    strong {
+      display: block;
+      font-size: 1.2em;
+      color: black;
+    }
+  }
+  
+  .row{
+    // background: #33383c;
+    margin-top: 30px;
+  }
+
+  .user_info{
+    display: flex;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .user_info a{
+    margin: 0px 1500px;
+    margin-bottom: 15px;
+  }

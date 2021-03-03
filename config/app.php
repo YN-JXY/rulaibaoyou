@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Log;
+
 return [
 
     /*
@@ -67,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
@@ -123,6 +125,7 @@ return [
 
     'cipher' => 'AES-256-CBC',
 
+    'log' => env('APP_LOG', 'daily'),
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -226,7 +229,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+    
     ],
-
+ 
 ];
